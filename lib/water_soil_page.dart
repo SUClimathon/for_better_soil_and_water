@@ -49,7 +49,7 @@ class WaterSoilPage extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => SensorPage(
                           device: device,
-                          test_type: 'heat',
+                          testType: 'heat',
                           for_: title,
                         ),
                       ),
@@ -78,7 +78,7 @@ class WaterSoilPage extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => SensorPage(
                           device: device,
-                          test_type: 'salinity',
+                          testType: 'salinity',
                           for_: title,
                         ),
                       ),
@@ -107,7 +107,7 @@ class WaterSoilPage extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => SensorPage(
                           device: device,
-                          test_type: 'acidity',
+                          testType: 'acidity',
                           for_: title,
                         ),
                       ),

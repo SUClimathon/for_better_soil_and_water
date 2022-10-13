@@ -20,7 +20,11 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                padding: EdgeInsets.all(50),
+                padding: EdgeInsets.all(20),
+                child: Image.asset('assets/images/dd.png'),
+              ),
+              Container(
+                padding: EdgeInsets.all(30),
                 child: const Text(
                   'Description.....................................................',
                   style: TextStyle(

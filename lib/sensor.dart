@@ -8,13 +8,13 @@ import 'result.dart';
 
 class SensorPage extends StatefulWidget {
   final BluetoothDevice device;
-  final String test_type;
+  final String testType;
   final String for_;
 
   const SensorPage(
       {Key? key,
       required this.device,
-      required this.test_type,
+      required this.testType,
       required this.for_})
       : super(key: key);
 
@@ -28,10 +28,12 @@ class _SensorPageState extends State<SensorPage> {
 
   late bool isReady;
   late Stream<List<int>> stream;
-  late List _temphumidata;
 
-  double _temp = 0;
-  double _humidity = 0;
+  late List _data;
+
+  double _heat = 0;
+  double _salinity = 0;
+  double _acidity = 0;
 
   @override
   void initState() {
@@ -114,7 +116,7 @@ class _SensorPageState extends State<SensorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('dht11 Sensor'),
+        title: const Text('Sensors Data'),
       ),
       body: Container(
           child: !isReady
@@ -136,19 +138,23 @@ class _SensorPageState extends State<SensorPage> {
                       if (snapshot.connectionState == ConnectionState.active) {
                         // geting data from bluetooth
                         var currentValue = _dataParser(snapshot.data!);
-                        _temphumidata = currentValue.split(",");
+                        _data = currentValue.split(",");
 
-                        if (_temphumidata[0] != "nan") {
-                          _temp = double.parse('${_temphumidata[0]}');
+                        if (_data[0] != "nan") {
+                          _heat = double.parse('${_data[0]}');
                         }
 
-                        if (_temphumidata[1] != "nan") {
-                          _humidity = double.parse('${_temphumidata[1]}');
+                        if (_data[1] != "nan") {
+                          _salinity = double.parse('${_data[1]}');
+                        }
+
+                        if (_data[1] != "nan") {
+                          _acidity = double.parse('${_data[2]}');
                         }
 
                         return Result(
-                          humidity: _humidity,
-                          temperature: _temp,
+                          humidity: 50,
+                          temperature: 20,
                         );
                       } else {
                         return const Text('Check the stream');

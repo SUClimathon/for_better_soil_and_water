@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'package:for_better_soil_and_water/bluetooth_state.dart';
 
 import 'water_soil_page.dart';
 
@@ -26,7 +25,7 @@ class WaterSoil extends StatelessWidget {
             children: [
               Container(
                 width: 250,
-                padding: EdgeInsets.all(30),
+                padding: const EdgeInsets.all(30),
                 child: TextButton(
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -56,7 +55,7 @@ class WaterSoil extends StatelessWidget {
               ),
               Container(
                 width: 250,
-                padding: EdgeInsets.all(30),
+                padding: const EdgeInsets.all(30),
                 child: TextButton(
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.black,
