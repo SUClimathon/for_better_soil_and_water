@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:for_better_soil_and_water/result.dart';
 
 import 'water_soil_page.dart';
 
@@ -36,12 +37,8 @@ class WaterSoil extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => WaterSoilPage(
-                          title: 'Water',
-                          desc:
-                              'Description.....................................................',
-                          device: device,
-                        ),
+                        builder: (context) =>
+                            Result(temperature: 10, salty: 30, acidity: 20),
                       ),
                     );
                   },
@@ -68,9 +65,11 @@ class WaterSoil extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => WaterSoilPage(
                           title: 'Soil',
-                          desc:
-                              'Description.....................................................',
+                          desc: 'Description.......................',
                           device: device,
+                          acidity: 50,
+                          salty: 50,
+                          temperature: 10,
                         ),
                       ),
                     );
