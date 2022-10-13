@@ -7,16 +7,18 @@ class BlueState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<BluetoothState>(
-      stream: FlutterBlue.instance.state,
-      initialData: BluetoothState.unknown,
-      builder: (c, snapshot) {
-        final state = snapshot.data;
-        if (state == BluetoothState.on) {
-          return FindDevicesScreen();
-        }
-        return BluetoothOffScreen(state: state);
-      },
+    return SafeArea(
+      child: StreamBuilder<BluetoothState>(
+        stream: FlutterBlue.instance.state,
+        initialData: BluetoothState.unknown,
+        builder: (c, snapshot) {
+          final state = snapshot.data;
+          if (state == BluetoothState.on) {
+            return FindDevicesScreen();
+          }
+          return BluetoothOffScreen(state: state);
+        },
+      ),
     );
   }
 }
@@ -58,7 +60,7 @@ class FindDevicesScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
+          children: [
             StreamBuilder<List<ScanResult>>(
               stream: FlutterBlue.instance.scanResults,
               initialData: [],
