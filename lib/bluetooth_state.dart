@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-
-import 'device.dart';
+import 'package:for_better_soil_and_water/water_soil.dart';
 
 class BlueState extends StatelessWidget {
   const BlueState({Key? key}) : super(key: key);
@@ -65,17 +64,22 @@ class FindDevicesScreen extends StatelessWidget {
               initialData: [],
               builder: (c, snapshot) => Column(
                 children: snapshot.data!
-                    .map((result) => ListTile(
-                          title: Text(result.device.name == ""
-                              ? "No Name "
-                              : result.device.name),
-                          subtitle: Text(result.device.id.toString()),
-                          onTap: () => Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context) {
-                            result.device.connect();
-                            return DeviceScreen(device: result.device);
-                          })),
-                        ))
+                    .map(
+                      (result) => ListTile(
+                        title: Text(result.device.name == ""
+                            ? "No Name "
+                            : result.device.name),
+                        subtitle: Text(result.device.id.toString()),
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              result.device.connect();
+                              return WaterSoil(device: result.device);
+                            },
+                          ),
+                        ),
+                      ),
+                    )
                     .toList(),
               ),
             ),

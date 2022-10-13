@@ -25,7 +25,6 @@ class Home extends StatelessWidget {
                   'Description.....................................................',
                   style: TextStyle(
                     fontSize: 25,
-                    backgroundColor: Colors.red,
                   ),
                 ),
               ),

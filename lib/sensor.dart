@@ -8,8 +8,15 @@ import 'result.dart';
 
 class SensorPage extends StatefulWidget {
   final BluetoothDevice device;
+  final String test_type;
+  final String for_;
 
-  const SensorPage({Key? key, required this.device}) : super(key: key);
+  const SensorPage(
+      {Key? key,
+      required this.device,
+      required this.test_type,
+      required this.for_})
+      : super(key: key);
 
   @override
   State<SensorPage> createState() => _SensorPageState();
